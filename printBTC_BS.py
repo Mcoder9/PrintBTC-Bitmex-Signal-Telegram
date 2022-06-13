@@ -39,9 +39,9 @@ class PrintbtcBitmexSignal():
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.content, 'lxml')
                 getText = soup.find('pre').getText()
-                # signalText = '\n'.join([x for x in getText.splitlines()[1:-1] if x])
-                if getText:
-                    return getText
+                signalText = '\n'.join([x for x in getText.splitlines()[:-1]])
+                if signalText:
+                    return signalText
 
     def sendToPrintbtcBS(self,signalText):
         parameters = {"chat_id" : self.PrintbtcBS_chatid,"text" : signalText,}
