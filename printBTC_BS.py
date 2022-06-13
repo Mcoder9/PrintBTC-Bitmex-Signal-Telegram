@@ -59,7 +59,8 @@ class PrintbtcBitmexSignal():
 
                 self.trackTime.append(time)
                 print(f'Sent signal at for {self.trackTime}')
-
+            if len(self.trackTime) == 3:
+                self.trackTime = []
 
 bot = PrintbtcBitmexSignal()
 while True:
