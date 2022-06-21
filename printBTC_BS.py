@@ -9,7 +9,7 @@ class PrintbtcBitmexSignal():
     PrintbtcBSbot = 'https://api.telegram.org/bot5410478068:AAGBOIfRr53c-upmDyJpLbjVTAokYpPVSi0'
     PrintbtcBS_chatid = '-1001328221163'
     trackTime = []
-    scheduleTiming = ['11','14','16']
+    scheduleTiming = ['00','14','16']
 
 
     def getDayTime(self):
@@ -38,8 +38,10 @@ class PrintbtcBitmexSignal():
             resp = requests.get(randomTicker)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.content, 'lxml')
-                getText = soup.find('pre').getText()
-                signalText = '\n'.join([x for x in getText.splitlines()[:-1]])
+                try:
+                    getText = soup.find('pre').getText()
+                    signalText = '\n'.join([x for x in getText.splitlines()[:-1]])
+                except: signalText = None
                 if signalText:
                     return signalText
 
