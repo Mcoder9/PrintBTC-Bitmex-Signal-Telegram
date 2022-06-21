@@ -9,7 +9,7 @@ class PrintbtcBitmexSignal():
     PrintbtcBSbot = 'https://api.telegram.org/bot5410478068:AAGBOIfRr53c-upmDyJpLbjVTAokYpPVSi0'
     PrintbtcBS_chatid = '-1001328221163'
     trackTime = []
-    scheduleTiming = ['00','14','16']
+    scheduleTiming = ['11','14','16']
 
 
     def getDayTime(self):
